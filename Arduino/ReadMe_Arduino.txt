@@ -1,14 +1,14 @@
 MasterArduino:
-- Kemal Korjeniæ
+- Kemal Korjenic
 
 SlaveSensorLEDArduino:
-- PIRMotion sensor: Arman Hasanbegoviæ
-- Photosensitive sensor: Haris Aèkar
-- LED lights dimming: Haris Aèkar
-- Dust sensor: Kemal Korjeniæ
-- Temperature and humidity sensor: Arman Hasanbegoviæ
-- NRF24L01 module: Kemal Korjeniæ
-- Data acquisition and transmition: Kemal Korjeniæ
-- Main (loop function): Arman Hasanbegoviæ
+- PIRMotion sensor: Arman Hasanbegovic
+- Photosensitive sensor: Haris Ackar
+- LED lights dimming: Haris Ackar
+- Dust sensor: Kemal Korjenic
+- Temperature and humidity sensor: Arman Hasanbegovic
+- NRF24L01 module: Kemal Korjenic
+- Data acquisition and transmition: Kemal Korjenic
+- Main (loop function): Arman Hasanbegovic
 
 SlaveLEDArduino is just reduced SlaveSensorLEDArduino file.
