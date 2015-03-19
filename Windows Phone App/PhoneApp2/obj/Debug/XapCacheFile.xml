@@ -1,0 +1,40 @@
+﻿<xapCache source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\PhoneApp2_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="15.3.2015 19:13:48">
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\resources.pri" archivePath="resources.pri" lastWriteTime="15.3.2015 17:38:29" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\obj\Debug\PhoneApp2.dll" archivePath="PhoneApp2.dll" lastWriteTime="15.3.2015 19:13:46" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Tiles\Comfortaa-Bold.ttf" archivePath="Assets\Tiles\Comfortaa-Bold.ttf" lastWriteTime="15.3.2015 4:31:37" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Tiles\Comfortaa-Light.ttf" archivePath="Assets\Tiles\Comfortaa-Light.ttf" lastWriteTime="15.3.2015 4:31:37" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="15.3.2015 12:38:28" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="15.3.2015 12:38:28" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="15.3.2015 12:38:28" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="15.3.2015 12:38:28" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="15.3.2015 12:38:28" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="15.3.2015 12:38:28" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\BadgeLogo.png" archivePath="Assets\BadgeLogo.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\dust_icon.png" archivePath="Assets\dust_icon.png" lastWriteTime="15.3.2015 16:45:14" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Fotolia.jpg" archivePath="Assets\Fotolia.jpg" lastWriteTime="15.3.2015 7:57:27" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\humidity_icon.png" archivePath="Assets\humidity_icon.png" lastWriteTime="15.3.2015 16:45:01" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Logo.png" archivePath="Assets\Logo.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Markeer.png" archivePath="Assets\Markeer.png" lastWriteTime="15.3.2015 17:36:44" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\SplashScreen.png" archivePath="Assets\SplashScreen.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\SquareTile150x150.png" archivePath="Assets\SquareTile150x150.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\SquareTile71x71.png" archivePath="Assets\SquareTile71x71.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\StoreLogo.png" archivePath="Assets\StoreLogo.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\temperature_icon.png" archivePath="Assets\temperature_icon.png" lastWriteTime="15.3.2015 16:44:46" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\WideLogo.png" archivePath="Assets\WideLogo.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="15.3.2015 17:37:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="15.3.2015 4:16:53" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.1\Libraries\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="18.4.2014 5:36:48" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.1\Libraries\Microsoft.Phone.Controls.Maps.dll" archivePath="Microsoft.Phone.Controls.Maps.dll" lastWriteTime="18.4.2014 5:36:48" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="15.3.2015 12:38:28" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="15.3.2015 14:36:19" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="15.3.2015 14:36:19" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="15.3.2015 17:37:53" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\obj\Debug\MDILProjectFiles.xml" archivePath="MDILProjectFiles.xml" lastWriteTime="15.3.2015 19:13:47" />
+  <file source="C:\Users\Haris\Desktop\PhoneApp2\PhoneApp2\Bin\Debug\AppxManifest.xml" archivePath="AppxManifest.xml" lastWriteTime="15.3.2015 17:38:29" />
+</xapCache>
