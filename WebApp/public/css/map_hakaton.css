@@ -1,0 +1,87 @@
+/*Fonts*/
+@font-face {
+    font-family: comfortaa;
+    src: url(../fonts/Comfortaa-Regular_0.ttf);
+}
+
+@font-face {
+    font-family: comfortaa-bold;
+    src: url(../fonts/Comfortaa-Bold_0.ttf);
+}
+
+@font-face {
+    font-family: lobster;
+    src: url(../fonts/Lobster.ttf);
+}
+
+@font-face {
+    font-family: myraidpro-bold;
+    src: url(../fonts/MyriadPro-Bold.otf);
+}
+
+#map-canvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+.page-role-text-subs {
+    text-align: left;
+    font-family: comfortaa;
+    font-weight: bold;
+    font-size: 1.25vw;
+    color: #353534;
+    text-shadow: none;
+    position: relative;
+}
+
+.page-role-text {
+    text-align: left;
+    font-family: comfortaa;
+    font-size: 1vw;
+    color: #353534;
+    text-shadow: none;
+    position: relative;
+}
+
+.station-type-image {
+    width: 7vw;
+    height: 7vw;
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.popup-content {
+    min-width: 18vw;
+    left: 8vw;
+    position: absolute;
+}
+
+.popup-outer {
+    min-width: 25vw;
+    min-height: 7vw;
+    max-width: 40vw;
+}
+
+.data-table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.data-icon {
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-right: 0.5vw;
+}
+
+.data-caption {
+    width: 50%;
+}
+
+.data {
+    width: 50%;
+}

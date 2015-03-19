@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="image_src" href="images/notify_better_image.png"/>
+    <link rel="stylesheet" type="text/css" href="css/map_hakaton.css">
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" id="favicon" href="images/favicon.png">
+    <link rel="canonical" href="http://www.thepetedesign.com/demos/onepage_scroll_demo.html"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
+    <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
+    <link href='css/global.css' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/map_hakaton.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script>
+        google.maps.event.addDomListener(window, 'load', initialize);
+        var lastReading = 0;
+        var app = angular.module('myapp', ['ngRoute']);
+
+        app.controller('two_way_control', function ($scope, $http, $interval) {
+            load_markers();
+            load_all_readings();
+
+            $interval(function () {
+                load_markers();
+            }, 1000000);
+
+            $interval(function () {
+                load_all_readings();
+            }, 10000);
+
+            $interval(function () {
+                if(selectedMarkerID != undefined)
+                    document.getElementById("charts-outer-box-overlay").setAttribute("hidden", "true");
+            }, 200);
+
+
+
+            function load_markers() {
+                console.log("Prvi prosao!");
+                $http.get('http://localhost:3000/load').success(function (data) {
+                    setTimeout(function () {
+                        for (var i = 0; i < data.length; i++) {
+                            var loc = data[i];
+                            geocodeLatLng(loc);
+                        }
+                    }, 1000);
+					
+					var loc1 = {"id": 44, "latitude": 43.85575, "longitude": 18.40699, "Temperature": 21, "Humidity": 10, "Pollution": 0.25};
+					var loc2 = {"id": 45, "latitude": 43.85395, "longitude": 18.39184, "Temperature": 26, "Humidity": 10, "Pollution": 0.22};
+					console.log(JSON.stringify(loc1));
+					addHardCodedPin(loc1, "Marijin Dvor, Sarajevo");
+					
+					addHardCodedPin(loc2, "Marijin Dvor, Sarajevo");
+                });
+            };
+
+            function load_all_readings() {
+                $http.get('http://localhost:3000/loadAllReadings').success(function (data) {
+                    console.log("sel"+selectedMarkerID);
+                    if (selectedMarkerID != undefined)
+                        {
+                            console.log("Drugi prosao!");
+                        var selectedData = [];
+                    for (var i = 0; i < data.length; i++)
+                    {
+                         if (data[i].ID == selectedMarkerID)
+                        selectedData.push(data[i]);
+                    }
+                            console.log(selectedData[data.length-1]);
+                    lastReading = data[data.length-1];
+                          }
+                });
+            };
+
+        });
+
+        $(document).ready(function () {
+            $(".main").onepage_scroll({
+                sectionContainer: "section",
+                responsiveFallback: 600,
+                loop: true
+            });
+
+            $(function () {
+                $(document).ready(function () {
+                    Highcharts.setOptions({
+                        global: {
+                            useUTC: false
+                        }
+                    });
+
+                    $(document).ready(function () {
+                        Highcharts.setOptions({
+                            global: {
+                                useUTC: false
+                            }
+                        });
+
+                        $('#chart1').highcharts({
+                            chart: {
+                                type: 'spline',
+                                animation: Highcharts.svg,
+                                marginRight: 10,
+                                events: {
+                                    load: function () {
+
+                                        var series = this.series[0];
+                                        setInterval(function () {
+                                            var x = (new Date()).getTime(), // current time
+                                                    y = lastReading.Temperature;
+                                            series.addPoint([x, y], true, true);
+                                        }, 10000);
+                                    }
+                                }
+                            },
+                            title: {
+                                text: 'Real-time temperature readings'
+                            },
+                            xAxis: {
+                                type: 'datetime',
+                                tickPixelInterval: 100
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Temperatures (°C)'
+                                },
+                                plotLines: [{
+                                    value: 0,
+                                    width: 3,
+                                    color: '#808080'
+                                }]
+                            },
+                            tooltip: {
+                                formatter: function () {
+                                    return '<b>' + this.series.name + '</b><br/>' +
+                                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                                            Highcharts.numberFormat(this.y, 2);
+                                }
+                            },
+                            legend: {
+                                enabled: false
+                            },
+                            exporting: {
+                                enabled: false
+                            },
+                            series: [{
+                                name: 'Temperature',
+                                data: (function () {
+                                    var data = [],
+                                            time = (new Date()).getTime(), i;
+
+                                    for (i = -19; i <= 0; i += 1) {
+                                        data.push({
+                                            x: time + i * 1000,
+                                            y: 0
+                                        });
+                                    }
+                                    return data;
+                                }())
+                            }]
+                        });
+                    });
+
+                    $(document).ready(function () {
+                        Highcharts.setOptions({
+                            global: {
+                                useUTC: false
+                            }
+                        });
+
+                        $('#chart2').highcharts({
+                            chart: {
+                                type: 'spline',
+                                animation: Highcharts.svg,
+                                marginRight: 10,
+                                events: {
+                                    load: function () {
+
+                                        var series = this.series[0];
+                                        setInterval(function () {
+                                            var x = (new Date()).getTime(), // current time
+                                                    y = lastReading.Humidity;
+                                            series.addPoint([x, y], true, true);
+                                        }, 10000);
+                                    }
+                                }
+                            },
+                            title: {
+                                text: 'Real-time humidity readings'
+                            },
+                            xAxis: {
+                                type: 'datetime',
+                                tickPixelInterval: 100
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Humidity (%)'
+                                },
+                                plotLines: [{
+                                    value: 0,
+                                    width: 3,
+                                    color: '#808080'
+                                }]
+                            },
+                            tooltip: {
+                                formatter: function () {
+                                    return '<b>' + this.series.name + '</b><br/>' +
+                                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                                            Highcharts.numberFormat(this.y, 2);
+                                }
+                            },
+                            legend: {
+                                enabled: false
+                            },
+                            exporting: {
+                                enabled: false
+                            },
+                            series: [{
+                                name: 'Humidity',
+                                data: (function () {
+                                    var data = [],
+                                            time = (new Date()).getTime(), i;
+
+                                    for (i = -19; i <= 0; i += 1) {
+                                        data.push({
+                                            x: time + i * 1000,
+                                            y: 0
+                                        });
+                                    }
+                                    return data;
+                                }())
+                            }]
+                        });
+                    });
+
+                    $('#chart3').highcharts({
+                        chart: {
+                            type: 'spline',
+                            animation: Highcharts.svg,
+                            marginRight: 10,
+                            events: {
+                                load: function () {
+
+                                    var series = this.series[0];
+                                    setInterval(function () {
+                                        var x = (new Date()).getTime(), // current time
+                                                y = lastReading.Pollution;
+                                        series.addPoint([x, y], true, true);
+                                    }, 10000);
+                                }
+                            }
+                        },
+                        title: {
+                            text: 'Real-time dust concentration readings'
+                        },
+                        xAxis: {
+                            type: 'datetime',
+                            tickPixelInterval: 100
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Dust concentration (mg/m3)'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 3,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            formatter: function () {
+                                return '<b>' + this.series.name + '</b><br/>' +
+                                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                                        Highcharts.numberFormat(this.y, 2);
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+                        series: [{
+                            name: 'Dust concentration',
+                            data: (function () {
+                                var data = [],
+                                        time = (new Date()).getTime(), i;
+
+                                for (i = -19; i <= 0; i += 1) {
+                                    data.push({
+                                        x: time + i * 1000,
+                                        y: 0
+                                    });
+                                }
+                                return data;
+                            }())
+                        }]
+                    });
+                });
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main">
+
+            <section class="page1">
+                <div class="page_container">
+                    <div id="logo"></div>
+                    <h1 id="page-title">Smart Sarajevo City Lights and <br> Air Quality Monitoring System</h1>
+                    <div id="four-smarts"><div style="font-size: 2vw; bottom: -4vw; position: absolute; right: 0; ">Using smart sensors and technology <br> improves quality of your life.</div></div>
+                </div>
+            </section>
+
+            <section class="page2">
+                <div class="map-outer-box">
+                    <div id="map-canvas"></div>
+
+                    <code class="js">
+                        $(".main").onepage_scroll();
+                    </code>
+                </div>
+                <div class="charts-outer-box">
+                    <div id="chart1" class="chart-box">
+                        <h1>Chart_1</h1>
+                    </div>
+                    <div id="chart2" class="chart-box">
+                        <h1>Chart_2</h1>
+                    </div>
+                    <div id="chart3" class="chart-box">
+                        <h1>Chart_3</h1>
+                    </div>
+                </div>
+                <div id="charts-outer-box-overlay">
+                    <h1>Sensor live readings</h1>
+                    <h3>Select markers on the live feed map to the left to display sensor values at certain locations. In this division graphs for temperature, humidity and pollution will also be depicted.</h3>
+                </div>
+            </section>
+
+            <section class="page3">
+                <div id="green-arena">
+                    <div id="enterObject" class="page_container">
+                        <ol ng-app="myapp" ng-controller="two_way_control">
+                            <li ng-repeat="x in locations">
+                                {{x.latitude}}
+                            </li>
+
+                        </ol>
+                    </div>
+                        <h1 style="text-align: center; ">Join the Green Arena!</h1>
+                        <img src="../images/community_icon.svg" alt="Join the community" style="width:25vw;">
+
+                        <h2 style="text-align: center">Prove that your street has the cleanest air in town. Join the Green Arena <br> and help Sarajevo become the greenest city in the region!</h2>
+
+                        <form>
+                            E-mail:<br>
+                            <input type="email" name="e-mail" style="width: 25vw; ">
+                        </form>
+
+                        <div class="btns" style="width: 100%; ">
+                            <a class="reload btn" href="#">I'M GREEN!</a>
+                        </div>
+
+                </div>
+                <div style="width: 36vw; height: 100%; padding: 2%; float: right;">
+                    <div id="why-to-join-us">
+                        <div class="image-and-caption-outer">
+                            <img src="../images/health_and_money_icon.svg" alt="Health and money" style="width:25vw;">
+                            <h2 style="text-align: center">Keeps your health and your money</h2>
+                        </div>
+                        <div class="image-and-caption-outer">
+                            <img src="../images/web_and_mobile_phone_icon.svg" alt="Web and mobile application" style="width:25vw;">
+                            <h2 style="text-align: center">Air quality data - one click away!</h2>
+                        </div>
+    
+                    </div>
+    
+                    <div id="what-is-green-arena">
+                        <h3 style="  font-size: 2.8vw; font-weight: bold;">What is Green Arena?</h3>
+                        <p style="text-align: center; font-size: 1.2vw;">Green Arena is a system designed to rank city streets according to their air quality. The goal is to encourage people from all over town to help reduce air pollution by trying to make their own street the cleanest.<br><br>Join us, get your own monitoring station and get started!</p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
