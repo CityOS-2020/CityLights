@@ -1,22 +1,22 @@
 Single page template: https://github.com/peachananr/onepage-scroll
 
 index.html:
-	- HTML: Kemal Korjeniæ
-	- angular.js, javascript: Haris Èustoviæ, Mediha Zukiæ
-	- node.js: Kemal Korjeniæ, Mediha Zukiæ
+	- HTML: Kemal Korjenic
+	- angular.js, javascript: Haris Custovic, Mediha Zukic
+	- node.js: Kemal Korjenic, Mediha Zukic
 
 CSS:
-- global.css: Haris Èustoviæ, Kemal Korjeniæ
-- hakaton_map.css: Mediha Zukiæ, Kemal Korjeniæ
+- global.css: Haris Custovic, Kemal Korjenic
+- hakaton_map.css: Mediha Zukic, Kemal Korjenic
 
 JS:
-- map_hakaton.js: Mediha Zukiæ
+- map_hakaton.js: Mediha Zukic
 
 HighCharts:
-- Haris Èustoviæ, Kenan Ahmiæ
+- Haris Custovic, Kenan Ahmic
 
 SQL database:
-- Haris Èustoviæ
+- Haris Custovic
 
 Images:
 - http://thenounproject.com/
